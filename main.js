@@ -3,7 +3,7 @@ let container = document.querySelector('.card-container')
 function addCard(name, village, occupation, contact,imgSrc) {
   let card = document.createElement('div')
   card.className = 'card'
-  card.innerHTML = `<img src="${imgSrc}" alt="Worker Image" class="worker-image" onerror="this.onerror=null; this.src='/avatar.jpg';">
+  card.innerHTML = `<img src="${imgSrc}" alt="Worker Image" class="worker-image" onerror="this.onerror=null; this.src='avatar.jpg';">
 <h3 class="worker-name">${name}<br> (${village})</h3><h4 class="occupation">${occupation}</h4><a href="tel:${contact}"><button class="call-button" >Call Me</button></a>`
 
   container.appendChild(card)
