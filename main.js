@@ -1,10 +1,10 @@
-let container = document.querySelector('.container')
+let container = document.querySelector('.card-container')
 
-function addCard(name, village, occupation, imgSrc) {
+function addCard(name, village, occupation, contact,imgSrc) {
   let card = document.createElement('div')
   card.className = 'card'
-  card.innerHTML = `<img src="${imgSrc}" alt="Worker Image" class="worker-image" onerror="this.onerror=null; this.src='avatar.jpg';">
-<h3 class="worker-name">${name}<br> (${village})</h3><h4 class="occupation">${occupation}</h4><button class="call-button" >Call Me</button>`
+  card.innerHTML = `<img src="${imgSrc}" alt="Worker Image" class="worker-image" onerror="this.onerror=null; this.src='/avatar.jpg';">
+<h3 class="worker-name">${name}<br> (${village})</h3><h4 class="occupation">${occupation}</h4><a href="tel:${contact}"><button class="call-button" >Call Me</button></a>`
 
   container.appendChild(card)
 }
@@ -27,9 +27,19 @@ async function fetchCSVData() {
       if (i==0) {
         return
       }
-      addCard(name,village,occupation,image)
+      addCard(name,village,occupation,contact,image)
     });
   } catch (error) {
     console.error('Error fetching CSV data:', error);
   }
 }
+
+const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
