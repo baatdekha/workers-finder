@@ -10,7 +10,7 @@ function addCard(name, village, occupation, contact,imgSrc) {
 }
 
 async function fetchCSVData() {
-  const sheetId = '19UfWNrAp0bf3VI32vo9SAbMf0poM2JEu';
+  const sheetId = '1zeaDjkbOtWjIxLx-YxZKHA0b1mSuSZsd2mgcw5C_5Pk';
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
 
   try {
