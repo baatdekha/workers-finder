@@ -22,6 +22,8 @@ async function fetchCSVData() {
     // console.log(rows)
 
     rows.forEach((row,i) => {
+      let [timestamp,name,contact,village,occupation,image] = row
+
       let [name,village,occupation,contact,image] = row
       //console.log({name,village,occupation,contact,image})
       if (i==0) {
