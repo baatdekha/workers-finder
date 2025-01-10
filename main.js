@@ -12,6 +12,7 @@ function addCard(name, village, occupation, contact,imgSrc) {
 async function fetchCSVData() {
   const sheetId = '1zeaDjkbOtWjIxLx-YxZKHA0b1mSuSZsd2mgcw5C_5Pk';
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
+  //const url = '/workers_details.csv'
 
   try {
     const response = await fetch(url);
@@ -23,12 +24,14 @@ async function fetchCSVData() {
 
     rows.forEach((row,i) => {
       let [timestamp,name,contact,village,occupation,image] = row
-      //let [name,village,occupation,contact,image] = row
+
+     // let [name,village,occupation,contact,image] = row
       //console.log({name,village,occupation,contact,image})
       if (i==0) {
         return
       }
-      addCard(name,village,occupation,contact,image)
+      let imageUrl = `images/${name.replace(' ','-')}.jpg`
+      addCard(name,village,occupation,contact,imageUrl)
     });
   } catch (error) {
     console.error('Error fetching CSV data:', error);
