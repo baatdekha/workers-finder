@@ -30,7 +30,7 @@ async function fetchCSVData() {
       if (i==0) {
         return
       }
-      let imageUrl = `images/${name.replace(' ','-')}.jpg`
+      let imageUrl = `images/${name.replaceAll(' ','-')}.jpg`
       addCard(name,village,occupation,contact,imageUrl)
     });
   } catch (error) {
